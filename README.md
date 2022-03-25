@@ -32,7 +32,7 @@
 <p>---Index.html</p>
 <p>---assets (style) and (script)</p>
 
-<img src="../assets/projectpicture.JPG" width="350" height="350" alt="password generator">
+<img src="./assets/projectpicture.JPG" alt="Project picture for Password Generator">
 
 
 <h4>Assignment Criteria</h4>
