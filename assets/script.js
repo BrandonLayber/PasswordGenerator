@@ -16,28 +16,33 @@ generateBtn.addEventListener("click", writePassword);
 
 // Function for writePassword Input
 function writePassword() {
-  var correctPrompts = getPrompts();
+  var correctPrompts = getPrompts();  //call of true or false
   var passwordText = document.querySelector("#password");
   
+  //checking to ensure prompts are correct to generate password
   if (correctPrompts) {
     var newPassword = generatePassword();
     passwordText.value = newPassword;
   } else {
-    passwordTest.value = "";
+    passwordText.value = "";
   }
 }
+
 
 function generatePassword() {
   var password = "";
   for(var i = 0; i < characterLength; i++) {
-    var randomIndex = Math.floor(Math.random() * choiceArr.length);
-    password = password + choiceArr[randomIndex];
+    var randomLetter = Math.floor(Math.random() * choiceArr.length);
+    password = password + choiceArr[randomLetter];
   }
   return password;
 }
 
-//
+//window prompts asking for user input on password criteria. Concat the four question arrays into the choice array
 function getPrompts() {
+  
+  choiceArr = [];
+
   characterLength = parseInt(prompt("How many characters do you want your password to be? (TYPE any number between (8 - 128 characters"));
 
   if(isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
@@ -45,19 +50,19 @@ function getPrompts() {
     return false;
   }
 
-  if(confirm("Would you like lowercase letters in your password?")) {
+  if(confirm("Would you like to include lowercase letters in your password?")) {
     choiceArr = choiceArr.concat(lowerCaseArr);
   }
 
-  if(confirm("Would you like Uppercase letters in your password?")) {
+  if(confirm("Would you like to include Uppercase letters in your password?")) {
     choiceArr = choiceArr.concat(upperCaseArr);
   }
 
-  if(confirm("Would you like Numbers in your password?")) {
+  if(confirm("Would you like to include Numbers in your password?")) {
     choiceArr = choiceArr.concat(numberArr);
   }
 
-  if(confirm("Would you like special characters in your password?")) {
+  if(confirm("Would you like to include special characters in your password?")) {
     choiceArr = choiceArr.concat(specialCharacterArr);
   }
   return true;
