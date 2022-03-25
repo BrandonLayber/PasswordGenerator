@@ -65,5 +65,6 @@ function getPrompts() {
   if(confirm("Would you like to include special characters in your password?")) {
     choiceArr = choiceArr.concat(specialCharacterArr);
   }
+
   return true;
 }
